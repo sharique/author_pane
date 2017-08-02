@@ -1,0 +1,5 @@
+name: Author Pane
+type: module
+description: Author info display block for node and profile page
+core: 8.x
+package: Custom

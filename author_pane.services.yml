@@ -1,0 +1,4 @@
+services:
+  plugin.manager.authorpane:
+    class: Drupal\author_pane\AuthorPaneManager
+    parent: default_plugin_manager

@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains author_pane.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function author_pane_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the author_pane module.
+    case 'help.page.author_pane':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Author info display block for node and profile page') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function author_pane_theme() {
+  return [
+    'author_pane' => [
+      'render element' => 'children',
+    ],
+  ];
+}
