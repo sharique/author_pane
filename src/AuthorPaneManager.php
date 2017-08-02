@@ -23,7 +23,7 @@ class AuthorPaneManager extends DefaultPluginManager {
     $plugin_definition_annotation_name = 'Drupal\author_pane\Annotation\AuthorPane';
     $plugin_interface = 'Drupal\author_pane\AuthorPaneInterface';
 
-    parent::__construct($subdir, $namespaces, $module_handler, $plugin_interface, $plugin_definition_annotation_name);
+    parent::__construct($subdir, $namespaces, $module_handler, NULL, $plugin_definition_annotation_name);
 
     $this->alterInfo('author_pane_data');
     $this->setCacheBackend($cache_backend, 'author_pane_data');

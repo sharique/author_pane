@@ -19,12 +19,30 @@ use Drupal\Core\Form\FormStateInterface;
 class AuthorPaneBlock extends BlockBase {
 
   /**
+   * @var \Drupal\author_pane\AuthorPaneManager
+   */
+  protected $manager;
+
+  /**
+   * @var \Drupal\author_pane\Plugin\AuthorPane\AuthorPaneBase
+   */
+  protected $author_pane;
+
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+
+    $this->manager = \Drupal::service('lugin.manager.authorpane');
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function blockForm($form, FormStateInterface $form_state) {
 
-    $manager = \Drupal::service('plugin.manager.authorpane');
-    $ops = $manager->getDefinitions();
+    $ops = $$this->manager->getDefinitions();
 
     $options = [];
     foreach ($ops as $item) {
@@ -62,10 +80,9 @@ class AuthorPaneBlock extends BlockBase {
     // If we have no author, we can't build the pane.
     if (!is_null($author)) {
       $config = $this->getConfiguration();
-      $manager = \Drupal::service('plugin.manager.authorpane');
-      $this->authorPane = $manager->createInstance($config['author_pane']);
-      $this->authorPane->setAuthor($author);
-      $content = $this->authorPane->build();
+      $this->author_pane = $this->manager->createInstance($config['author_pane']);
+      $this->author_pane->setAuthor($author);
+      $content = $this->author_pane->build();
 
       // @TODO: More advanced theming on the block?
       $block = ['#markup' => $content];

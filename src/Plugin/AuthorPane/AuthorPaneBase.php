@@ -10,10 +10,10 @@
 
 namespace Drupal\author_pane\Plugin\AuthorPane;
 
-use Drupal\author_pane\AuthorPaneInterface;
 use Drupal\Component\Plugin\PluginBase;
 
-abstract class AuthorPaneBase extends PluginBase  implements AuthorPaneInterface {
+abstract class AuthorPaneBase extends PluginBase {
+
   /**
    * Machine name of the plugin.
    *
@@ -118,7 +118,7 @@ abstract class AuthorPaneBase extends PluginBase  implements AuthorPaneInterface
   }
 
   /**
-   * Returns the HTML string that contains the output of the datum.
+   * Returns the HTML string that contains the output of the author pane.
    */
   public function build() {
 
