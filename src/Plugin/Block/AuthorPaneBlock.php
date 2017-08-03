@@ -82,16 +82,7 @@ class AuthorPaneBlock extends BlockBase {
       $config = $this->getConfiguration();
       $this->author_pane = $this->manager->createInstance($config['author_pane']);
       $this->author_pane->setAuthor($author);
-      $content = $this->author_pane->build();
-
-
-      // @TODO: More advanced theming on the block?
-      //$block = ['#markup' => $content];
-
-      $block = [
-        '#theme' => 'author_pane',
-        '#user' => $author,
-      ];
+      return $this->author_pane->build();
     }
 
     return $block;

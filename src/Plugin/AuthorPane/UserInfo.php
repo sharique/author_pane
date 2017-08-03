@@ -22,7 +22,7 @@ class UserInfo extends AuthorPaneBase {
   public function build() {
     // @TODO: Change this to the real output.
     $output = [
-      '#theme' => 'userinfo',
+      '#theme' => 'author_pane',
       '#user' => $this->author->getUsername(),
     ];
     return $output;
