@@ -21,7 +21,11 @@ class UserInfo extends AuthorPaneBase {
 
   public function build() {
     // @TODO: Change this to the real output.
-    return "In user info: " . $this->author->getUsername();
+    $output = [
+      '#theme' => 'userinfo',
+      '#user' => $this->author->getUsername(),
+    ];
+    return $output;
   }
 
 }

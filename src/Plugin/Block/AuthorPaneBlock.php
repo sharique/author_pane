@@ -34,7 +34,7 @@ class AuthorPaneBlock extends BlockBase {
   public function __construct(array $configuration, $plugin_id, $plugin_definition) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
-    $this->manager = \Drupal::service('lugin.manager.authorpane');
+    $this->manager = \Drupal::service('plugin.manager.authorpane');
   }
 
   /**
@@ -84,8 +84,14 @@ class AuthorPaneBlock extends BlockBase {
       $this->author_pane->setAuthor($author);
       $content = $this->author_pane->build();
 
+
       // @TODO: More advanced theming on the block?
-      $block = ['#markup' => $content];
+      //$block = ['#markup' => $content];
+
+      $block = [
+        '#theme' => 'author_pane',
+        '#user' => $author,
+      ];
     }
 
     return $block;

@@ -29,7 +29,7 @@ function author_pane_help($route_name, RouteMatchInterface $route_match) {
 function author_pane_theme() {
   return [
     'author_pane' => [
-      'render element' => 'children',
+      'variables' => [],
     ],
   ];
 }

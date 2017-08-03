@@ -1,1 +1,4 @@
-<!-- Add you custom twig html here -->
+{{ user.username }}
+
+<div>Last seen: {{ user.account.access }} </div>
+<div>Joined on: {{ user.account.created | format_date('short')}} </div>
