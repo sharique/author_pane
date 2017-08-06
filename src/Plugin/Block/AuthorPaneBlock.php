@@ -42,7 +42,7 @@ class AuthorPaneBlock extends BlockBase {
    */
   public function blockForm($form, FormStateInterface $form_state) {
 
-    $ops = $$this->manager->getDefinitions();
+    $ops = $this->manager->getDefinitions();
 
     $options = [];
     foreach ($ops as $item) {
